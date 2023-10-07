@@ -20,7 +20,7 @@ from PIL import Image
 import torch.nn.functional as F
 import cv2
 
-class Prompt2PromptPipeline(StableDiffusionPipeline):
+class GatherAndBindPipeline(StableDiffusionPipeline):
     r"""
     Pipeline for text-to-image generation using Stable Diffusion.
     This model inherits from [`DiffusionPipeline`]. Check the superclass documentation for the generic methods the
