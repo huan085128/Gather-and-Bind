@@ -1,7 +1,7 @@
 import json
 import os
 import random
-from pipeline_augmention import Prompt2PromptPipeline
+from pipeline_gather_and_bind import GatherAndBindPipeline
 from ptp_utils import AttentionStore, view_images
 import torch
 import re
@@ -78,7 +78,7 @@ def extract_prompts_and_seeds_from_yaml(yaml_path):
     
 def load_model(model_path):
     device = torch.device('cuda:0') if torch.cuda.is_available() else torch.device('cpu')
-    pipe = Prompt2PromptPipeline.from_pretrained(model_path).to(device)
+    pipe = GatherAndBindPipeline.from_pretrained(model_path).to(device)
 
     return pipe
 
