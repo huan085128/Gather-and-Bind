@@ -100,15 +100,13 @@ def generate_multi_images(model_path, prompts_path, concept, val_output_path):
             file_name = f"{save_path}/{seed}.png"
             image.save(file_name)
         
-def generate_images(model_path, prompt, val_output_path):
+def generate_images(model_path, prompt, seed, val_output_path):
     pipe = load_model(model_path)
-    unique_seeds = random.sample(range(10000), 100)
     save_path = os.path.join(val_output_path, prompt.replace(" ", "_"))
     os.makedirs(save_path, exist_ok=True)
-    for seed in unique_seeds:
-        image = generate(pipe, [prompt], seed)
-        file_name = f"{save_path}/{seed}.png"
-        image.save(file_name)
+    image = generate(pipe, [prompt], seed)
+    file_name = f"{save_path}/{seed}.png"
+    image.save(file_name)
 
 
 if __name__ == "__main__":
@@ -117,13 +115,13 @@ if __name__ == "__main__":
     parser.add_argument(
         "--prompt",
         type=str,
-        default="a pink bow and a gray apple"
+        default="a turtle and a yellow bowl"
     )
 
     parser.add_argument(
         '--seed',
         type=int,
-        default=200
+        default=2000
     )
 
     parser.add_argument(
@@ -135,31 +133,18 @@ if __name__ == "__main__":
     parser.add_argument(
         '--model_path',
         type=str,
-        default='/ai/workshop/stable-diffusion-v1-5',
+        default='/home/models/stable_diffusion_v1.5',
         help='The path to the model (this will download the model if the path doesn\'t exist)'
-    )
-
-    parser.add_argument(
-        '--prompts_path',
-        type=str,
-        default='/ai/workshop/pipeline/a.e_prompts.yaml',
     )
 
     parser.add_argument(
         '--val_output_path',
         type=str,
-        default='/ai/workshop/pipeline/val_output',
-    )
-
-    parser.add_argument(
-        '--concept',
-        type=str,
-        default='objects',
+        default='./val_output',
     )
 
     args = parser.parse_args()
 
-    # generate_multi_images(args.model_path, args.prompts_path, args.concept, args.val_output_path)
 
-    generate_images(args.model_path, args.prompt, args.val_output_path)
+    generate_images(args.model_path, args.prompt, args.seed, args.val_output_path)
 
