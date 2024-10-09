@@ -17,21 +17,29 @@ Gather-and-Bind is an optimization algorithm for stable diffusion, specifically 
 
 ## Get Start
 
-### Installation
+### Step-1 installation
 
 ```bash
+# clone the repository
 git clone https://github.com/huan085128/Gather-and-Bind
-pip install -r requirements.txt
 
-# Install en_core_web_trf
-python -m spacy download en_core_web_trf
+# install environment
+./install.sh
 ```
+### Step-2 download pretrained model
+Download the stable_diffusion_v1.5 model from [here](https://drive.google.com/drive/folders/1A_66w8pqR9JnZxpy4Pz1Eyuh1IH4I4Zu?usp=sharing)
 
-### Usage
+and then put the model in the models directory.
+
+### Step-3 generate images
 
 ```bash
-python generate_images.py --prompt "a turtle and a yellow bowl" --seed 2000 --output_directory "./output" --model_path '/home/models/stable_diffusion_v1.5' --val_output_path './val_output'
+# run the following command to generate images
+python generate_images.py
 ```
 
-### Explain
-If you want to see the changes in the attention map during the inference process, please go to explain.ipynb and run the code cell.
+### Step-4 visualizing attention maps with jupyter notebook
+
+As part of the experiments in our paper, we provide a Jupyter Notebook that visualizes the changes in attention maps during the denoising process of the diffusion model. This notebook allows for a more intuitive understanding of how the model focuses on different parts. 
+
+please see the `explain.ipynb` file for more details.
