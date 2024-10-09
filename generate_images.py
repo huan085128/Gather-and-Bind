@@ -115,13 +115,13 @@ if __name__ == "__main__":
     parser.add_argument(
         "--prompt",
         type=str,
-        default="a turtle and a yellow bowl"
+        default=None
     )
 
     parser.add_argument(
         '--seed',
         type=int,
-        default=2000
+        default=None
     )
 
     parser.add_argument(
@@ -133,18 +133,29 @@ if __name__ == "__main__":
     parser.add_argument(
         '--model_path',
         type=str,
-        default='/home/models/stable_diffusion_v1.5',
+        default='./models/stable_diffusion_v1.5',
         help='The path to the model (this will download the model if the path doesn\'t exist)'
     )
 
-    parser.add_argument(
-        '--val_output_path',
-        type=str,
-        default='./val_output',
-    )
 
     args = parser.parse_args()
 
+    preset_prompt_seed = {
+        "a bear and a glasses": 528938,
+        "a bird and a car": 349708,
+        "a elephant and a green suitcase": 774561,
+        "a horse and a white car": 556806,
+        "a pink bow and a gray apple": 698463,
+        "a pink chair and a gray apple": 448526,
+        "a yellow clock and a red bench": 306113
+    }
 
-    generate_images(args.model_path, args.prompt, args.seed, args.val_output_path)
+    if args.prompt is not None and args.prompt in preset_prompt_seed:
+        args.seed = preset_prompt_seed[args.prompt]
+    elif args.prompt is None:
+        args.prompt, args.seed = random.choice(list(preset_prompt_seed.items()))
+    elif args.seed is None:
+        args.seed = random.randint(0, 1000000)
+
+    generate_images(args.model_path, args.prompt, args.seed, args.output_directory)
 
