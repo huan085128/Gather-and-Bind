@@ -14,3 +14,6 @@ pip install -r requirements.txt
 
 # Install spaCy model en_core_web_trf
 python -m spacy download en_core_web_trf
+
+# 
+mkdir models
