@@ -1,4 +1,8 @@
-# Gather-and-Bind
+# Enhancing Semantic Mapping in Text-to-Image Diffusion via Gather-and-Bind
+
+This repo is the official PyTorch implementation of [Gather-and-Bind](https://doi.org/10.1016/j.cag.2024.104118).
+
+![Local Image](./images/4.png)
 
 ## Project Introduction
 
