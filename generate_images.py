@@ -133,7 +133,7 @@ if __name__ == "__main__":
     parser.add_argument(
         '--model_path',
         type=str,
-        default='./models/stable_diffusion_v1.5',
+        default='./models/stable-diffusion-1.5',
         help='The path to the model (this will download the model if the path doesn\'t exist)'
     )
 
