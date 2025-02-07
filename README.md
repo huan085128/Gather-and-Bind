@@ -22,6 +22,9 @@ Gather-and-Bind is an optimization algorithm for stable diffusion, specifically 
 ## Get Start
 
 ### Step-1 installation
+To set up and run this project, please ensure the following requirements are met:
+- Conda is mandatory: The installation and environment setup rely on Conda. Please install Miniconda or Anaconda if you haven’t already.
+- Hardware requirements: A GPU with at least 24GB VRAM is recommended to run the model efficiently. 
 
 ```bash
 # clone the repository
