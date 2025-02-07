@@ -30,6 +30,12 @@ git clone https://github.com/huan085128/Gather-and-Bind
 # install environment
 ./install.sh
 ```
+if you can't download en_core_web_trf, you can download it manually from [here](https://drive.google.com/drive/folders/1A_66w8pqR9JnZxpy4Pz1Eyuh1IH4I4Zu?usp=sharing) and then install it with the following command:
+
+```bash
+python install en_core_web_trf-3.7.3.tar.gz
+```
+
 ### Step-2 download pretrained model
 Download the stable_diffusion_v1.5 model from [here](https://drive.google.com/drive/folders/1A_66w8pqR9JnZxpy4Pz1Eyuh1IH4I4Zu?usp=sharing)
 

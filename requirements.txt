@@ -10,3 +10,4 @@ matplotlib
 pyrallis
 jupyter
 accelerate==0.23.0
+huggingface_hub==0.25.2
